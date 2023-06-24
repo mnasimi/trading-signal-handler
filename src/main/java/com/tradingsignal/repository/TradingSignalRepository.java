@@ -7,4 +7,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * Repository for managing trading signals
  */
 public interface TradingSignalRepository extends MongoRepository<TradingSignal, String> {
+    TradingSignal findBySignal(int signalId);
 }
