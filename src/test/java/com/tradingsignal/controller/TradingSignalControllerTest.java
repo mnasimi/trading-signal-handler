@@ -1,6 +1,7 @@
 package com.tradingsignal.controller;
 
 import com.tradingsignal.document.TradingSignal;
+import com.tradingsignal.handler.SignalHandler;
 import com.tradingsignal.service.TradingSignalService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,8 @@ import java.util.Map;
 class TradingSignalControllerTest {
     @Mock
     private TradingSignalService tradingSignalService;
+    @Mock
+    private SignalHandler signalHandler;
     @InjectMocks
     private TradingSignalController tradingSignalController;
 

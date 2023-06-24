@@ -1,21 +1,27 @@
 package com.tradingsignal.service;
 
 import com.tradingsignal.document.TradingSignal;
+import com.tradingsignal.repository.TradingSignalRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Map;
 
 /**
  * The service for handling trading signal db-related tasks.
  */
 @Service
 public class TradingSignalService {
+    private TradingSignalRepository tradingSignalRepository;
+
+    @Autowired
+    public TradingSignalService(TradingSignalRepository tradingSignalRepository) {
+        this.tradingSignalRepository = tradingSignalRepository;
+    }
+
     /**
-     * Retrieve signal from db..
+     * Retrieve signal from db.
      */
     public TradingSignal getTradingSignals(Integer signal) {
-        // working with dummy data
-        return new TradingSignal(1, Map.of(1, "setUp()", 2 , "reverse()"));
+        return tradingSignalRepository.findBySignal(signal);
     }
 
 }
