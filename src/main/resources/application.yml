@@ -6,4 +6,4 @@ spring:
       port: 27017
       username: rootuser
       password: rootpass
-      database: meysam
+      database: db
