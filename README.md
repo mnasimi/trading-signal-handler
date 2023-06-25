@@ -15,14 +15,14 @@ Considering a large number of signals, the signal ID and corresponding actions-n
 Per HTTP API request, the document (i.e., signal-ID and actions) retrieved from the database and employ the map produced by
 MethodMapBuilder, enabling us to invoke each function for the given signal ID.
 
-## Technical Debts (to-dos)
-- The method in business logic which deals with the extraction of action name and argument from the configuration file, could be implemented in a more robust way. At the current implementation, a regular expression is employed to do this job which is maybe fragile because of the dynamic nature of action names and a number of arguments.
-- More tests especially for checking the invocation of actions and order of execution are required.
-
-## Challenges
+#### Implementation Challenges
 - Making sure that the trading-action are executed in the correct order.
 - Matching/extracting actions name and argument values.
 - The capability of accepting a dynamic number of argument values for trading actions.
+
+## Technical Debts (to-dos)
+- The method in business logic which deals with the extraction of action name and argument from the configuration file, could be implemented in a more robust way. At the current implementation, a regular expression is employed to do this job which is maybe fragile because of the dynamic nature of action names and a number of arguments.
+- More tests especially for checking the invocation of actions and order of execution are required.
 
 
 
