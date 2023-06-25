@@ -21,10 +21,12 @@ import java.util.TreeMap;
 public class SignalHandler implements ISignalHandler {
     private final TradingSignalService tradingSignalService;
     private final MethodMapBuilder methodMapBuilder;
+    private final Algo algo;
     @Autowired
     public SignalHandler(TradingSignalService tradingSignalService, MethodMapBuilder methodMapBuilder) {
         this.tradingSignalService = tradingSignalService;
         this.methodMapBuilder = methodMapBuilder;
+        this.algo = new Algo();
     }
 
     /**
@@ -45,6 +47,7 @@ public class SignalHandler implements ISignalHandler {
         if (tradingSignal == null) {
             //if the signal is not valid -> the trade will be cancelled.
             cancelTrade();
+            System.out.println("Signal is not valid or database related issue exist. (entered signal: " + signal + ")");
         } else {
             //Load signal-action from library
             Map<String, Method> libMethodMap = methodMapBuilder.build(Algo.class);
@@ -100,9 +103,9 @@ public class SignalHandler implements ISignalHandler {
         try {
             if (arguments != null && arguments.length > 0) {
                 //TODO: The number arguments should be dynamic. Need further attention.
-                method.invoke(new Algo(), arguments[0], arguments[1]);
+                method.invoke(algo, arguments[0], arguments[1]);
             } else {
-                method.invoke(new Algo());
+                method.invoke(algo);
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -36,6 +36,8 @@ class TradingSignalControllerTest {
         Mockito.when(tradingSignalService.getTradingSignals(ArgumentMatchers.anyInt())).thenReturn(ts);
 
         ResponseEntity<String> response = tradingSignalController.callSignalHandler(1);
+        // verify handleSignal method is called with expected input.
+        Mockito.verify(signalHandler, Mockito.times(1)).handleSignal(1);
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 }
