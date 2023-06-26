@@ -4,14 +4,14 @@ This project involves developing a Trading application that executes Trading Alg
 ## Proposed Solution
 Externalize the configuration: Utilizing a NoSQL database (such as MongoDB or ArangoDB) to store the signal specifications. This approach enables dynamic updates and eliminates the necessity for modifying code when new signals are introduced. While there are alternative solutions available, opting for this approach is primarily driven by the anticipation of efficiently managing a large volume of signals in the future.
 
+![img.png](img.png)
+
+**_Example of signal configuration in MongoDB._**
+
 #### Alternative Approach
 - Use polymorphism
 - Implement a strategy pattern
 - Use a map-based approach
-
-![img.png](img.png)
-
-**_Example of signal configuration in MongoDB._**
 
 ## Implementation
 
